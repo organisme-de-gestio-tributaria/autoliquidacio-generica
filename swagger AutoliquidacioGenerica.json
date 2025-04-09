@@ -1,0 +1,648 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"version": "1.0",
+		"title": "AutoliquidacioGenerica"
+	},
+	"host": "wsproves.orgt.diba.cat",
+	"basePath": "/AutoliquidacioGenerica/AutoliquidacioGenericaServiceREST.svc",
+	"paths": {
+		"/AltaAutoliquidacioREST": {
+			"post": {
+				"summary": "AltaAutoliquidacioREST",
+				"description": "Dóna d'alta una autoliquidació genèrica. Retorna un document per anar a pagar-la al banc, i una URL que es pot enganxar a un navegador Web per pagar-la telemàticament. Un cop aquesta operació acaba correctament, l'autoliquidació és ferma i passa a executiva si no es paga.",
+				"operationId": "ORGT.WebServices.AutoliquidacioGenerica.AutoliquidacioGenericaServiceREST.AltaAutoliquidacioREST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "autoliquidacio",
+						"in": "body",
+						"description": "Autoliquidació (objecte AutoliquidacioGenerica) amb les dades a donar d'alta",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/ORGT.WebServices.AutoliquidacioGenerica.AutoliquidacioGenerica"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Objecte de AutoliquidacioGenericaResultREST: document per anar a pagar-la al banc, i una URL que es pot enganxar a un navegador Web per pagar-la telemàticament. Un cop aquesta operació acaba correctament, l'autoliquidació és ferma i passa a executiva si no es paga.",
+						"schema": {
+							"$ref": "#/definitions/ORGT.WebServices.AutoliquidacioGenerica.AutoliquidacioGenericaResultREST"
+						},
+						"examples": {
+							"application/json": {
+								"Autoliquidacio": {
+									"AdrecaFiscalDestinatari": "ADREÇA FISCAL MAJUSCULES",
+									"AdrecaObjecteTributari": "ADREÇA OBJECTE MAJUSCULES",
+									"AnyContret": 0,
+									"Caixeti": {
+										"Linia": [
+											{
+												"Valor": ""
+											},
+											{
+												"Valor": ""
+											},
+											{
+												"Valor": ""
+											},
+											{
+												"Valor": ""
+											},
+											{
+												"Valor": ""
+											}
+										]
+									},
+									"CodiINE10": "0824570005",
+									"CodiPostalDestinatari": "08923",
+									"ConcepteTributari": "20",
+									"Contret": null,
+									"DNINIFContribuent": "00000000T",
+									"DNINIFRepresentant": null,
+									"DataLiquidacio": "/Date(1744063200000+0200)/",
+									"DataVencimentAutoliquidacio": "/Date(1746655200000+0200)/",
+									"DestinatariFiscal": "",
+									"DocumentAbonare": [
+										10,
+										11,
+										12
+									],
+									"Exercici": 2025,
+									"ImportDeute": 38,
+									"MunicipiFiscal": "SANTA COLOMA DE GRAMANET",
+									"NomContribuent": "NOM COGNOM",
+									"NomRepresentant": null,
+									"NumeroReferenciaAutoliquidacio": 80026,
+									"ReferenciaAjuntament": "0000000000",
+									"ReferenciaTributaria": "",
+									"Subconceptes": [
+										{
+											"Codi": "20",
+											"Import": 38
+										}
+									]
+								},
+								"CodiBarres": "905210849925004651718511300255128000038000",
+								"Identificadora": "1300255128",
+								"Pagat": false,
+								"Referencia": "500465171851",
+								"UrlPagament": "https://preprod.orgt.diba.cat/ca/TramitsPagaments/TargetaBancaria/tarcreP1?pEmisora=084992&pReferencia=500465171851&pIdentificadora=1300255128&pImportInput=38&pNmdocu=167419905&pCodibarres=905210849925004651718511300255128000038000&pBancaOnline=True",
+								"DocumentAbonareBase64": "documentPdfBytesEnBase64=="
+							}
+						}
+					}
+				}
+			}
+		},
+		"/ConsultaAutoliquidacioREST": {
+			"get": {
+				"summary": "ConsultaAutoliquidacioREST",
+				"description": "Consulta una autoliquidació genèrica a partir de la seva identificació. Cal informar les propietats identificatives: AutoliquidacioGenerica.CodiINE10 AutoliquidacioGenerica.Exercici AutoliquidacioGenerica.ConcepteTributari i AutoliquidacioGenerica.NumeroReferenciaAutoliquidacio.  Cal informar també el camp AutoliquidacioGenerica.DNINIFContribuent que serveix com a doble comprovació per evitar accessos a dades sensibles al web service de proves.",
+				"operationId": "ORGT.WebServices.AutoliquidacioGenerica.AutoliquidacioGenericaServiceREST.ConsultaAutoliquidacioREST",
+				"consumes": [
+					"application/json",
+					"application/xml"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "CodiINE10",
+						"in": "query",
+						"description": "CodiINE10 del municipi (String de 10 dígits). Exemple: '0810170005' per Hospitalet de Llobregat",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "Exercici",
+						"in": "query",
+						"description": "Exercici, exemple: 2025",
+						"required": true,
+						"type": "integer",
+						"format": "int32"
+					},
+					{
+						"name": "ConcepteTributari",
+						"in": "query",
+						"description": "Concepte tributari, string de 2 caràcters. Exemple: '20'=TAXA LLIC. URBANÍSTIQUES",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "NumeroReferenciaAutoliquidacio",
+						"in": "query",
+						"description": "Referència per a l'abonaré de cobrament. 7 dígits, sense el prefix amb el codi de municipi ni els dígits de control. Ha de ser únic pel municipi. ",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"name": "DNINIFContribuent",
+						"in": "query",
+						"description": "DNI, NIF o NIE del contribuent. 8 posicions, sense el dígit de control del final ",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Autoliquidació que consta a la ORGT com a objecte de AutoliquidacioGenericaResultREST",
+						"schema": {
+							"$ref": "#/definitions/ORGT.WebServices.AutoliquidacioGenerica.AutoliquidacioGenericaResultREST"
+						},
+						"examples": {
+							"application/json": {
+								"Autoliquidacio": {
+									"AdrecaFiscalDestinatari": "PL CATALUNYA, 0002",
+									"AdrecaObjecteTributari": "",
+									"AnyContret": 0,
+									"Caixeti": {
+										"Linia": [
+											{
+												"Valor": "OBJECTE TRIBUTARI: PL EUROPA 102 ,"
+											},
+											{
+												"Valor": "DESCR:"
+											},
+											{
+												"Valor": "       RAMAL"
+											},
+											{
+												"Valor": "BASE IMPOSABLE:         534,68 TIPUS IMPOSITIU:       4,00% ENDER.:         0,00"
+											},
+											{
+												"Valor": " BON/SBV:   0%"
+											},
+											{
+												"Valor": "QUOTA:         21,39 EUROS   REDUCCIO:       0,00 %"
+											},
+											{
+												"Valor": "            QUOTA TOTAL:       21,39 EUROS"
+											},
+											{
+												"Valor": ""
+											},
+											{
+												"Valor": ""
+											},
+											{
+												"Valor": ""
+											},
+											{
+												"Valor": ""
+											},
+											{
+												"Valor": "       CONCEPTE: 1.290.00   NUM. INGRÈS: 23 2000001  REF.: 00009-2222"
+											}
+										]
+									},
+									"CodiINE10": "0810170005",
+									"CodiPostalDestinatari": "08003",
+									"ConcepteTributari": "05",
+									"Contret": null,
+									"DNINIFContribuent": "00000000",
+									"DNINIFRepresentant": null,
+									"DataLiquidacio": "/Date(1673218800000+0100)/",
+									"DataVencimentAutoliquidacio": "/Date(1673996400000+0100)/",
+									"DestinatariFiscal": "",
+									"DocumentAbonare": null,
+									"Exercici": 2025,
+									"ImportDeute": 21.39,
+									"MunicipiFiscal": "BARCELONA",
+									"NomContribuent": "NOM I COGNOMS CONTRIBUENT",
+									"NomRepresentant": null,
+									"NumeroReferenciaAutoliquidacio": 2300066,
+									"ReferenciaAjuntament": "0002300066",
+									"ReferenciaTributaria": "00009-2222",
+									"Subconceptes": [
+										{
+											"Codi": "05",
+											"Import": 21.39
+										}
+									]
+								},
+								"CodiBarres": "01234567890123456789",
+								"Identificadora": "1300233018",
+								"Pagat": true,
+								"Referencia": "0123456",
+								"UrlPagament": "https://preprod.orgt.diba.cat/ca/TramitsPagaments/TargetaBancaria/tarcreP1?pEmisora=084992&pReferencia=1234&pIdentificadora=1300233018&pImportInput=21,39&pNmdocu=126055546&pCodibarres=123456789123&pBancaOnline=True",
+								"DocumentAbonareBase64": null
+							}
+						}
+					}
+				}
+			}
+		},
+		"/GenerarAbonareREST": {
+			"get": {
+				"summary": "GenerarAbonareREST",
+				"description": "Genera un nou abonaré per una autoliquidació genèrica ja existent, a partir de la seva identificació. Cal informar les propietats identificatives: AutoliquidacioGenerica.CodiINE10 AutoliquidacioGenerica.Exercici AutoliquidacioGenerica.ConcepteTributari i AutoliquidacioGenerica.NumeroReferenciaAutoliquidacio.  Cal informar també el camp AutoliquidacioGenerica.DNINIFContribuent que serveix com a doble comprovació per evitar accessos a dades sensibles al web service de proves.",
+				"operationId": "ORGT.WebServices.AutoliquidacioGenerica.AutoliquidacioGenericaServiceREST.GenerarAbonareREST",
+				"consumes": [
+					"application/json",
+					"application/xml"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "CodiINE10",
+						"in": "query",
+						"description": "CodiINE10 del municipi (String de 10 dígits). Exemple: '0810170005' per Hospitalet de Llobregat",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "Exercici",
+						"in": "query",
+						"description": "Exercici, exemple: 2025",
+						"required": true,
+						"type": "integer",
+						"format": "int32"
+					},
+					{
+						"name": "ConcepteTributari",
+						"in": "query",
+						"description": "Concepte tributari, string de 2 caràcters. Exemple: '20'=TAXA LLIC. URBANÍSTIQUES",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "NumeroReferenciaAutoliquidacio",
+						"in": "query",
+						"description": "Referència per a l'abonaré de cobrament. 7 dígits, sense el prefix amb el codi de municipi ni els dígits de control. Ha de ser únic pel municipi. ",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"name": "DNINIFContribuent",
+						"in": "query",
+						"description": "DNI, NIF o NIE del contribuent. 8 posicions, sense el dígit de control del final ",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Objecte AutoliquidacioGenericaResultREST amb les dades de l'autoliquidació i el document PDF de l'abonaré codificat en base64",
+						"schema": {
+							"$ref": "#/definitions/ORGT.WebServices.AutoliquidacioGenerica.AutoliquidacioGenericaResultREST"
+						},
+						"examples": {
+							"application/json": {
+								"Autoliquidacio": {
+									"AdrecaFiscalDestinatari": "PL CATALUNYA, 0002",
+									"AdrecaObjecteTributari": "",
+									"AnyContret": 0,
+									"Caixeti": {
+										"Linia": [
+											{
+												"Valor": "OBJECTE TRIBUTARI: PL EUROPA 102 ,"
+											},
+											{
+												"Valor": "DESCR:"
+											},
+											{
+												"Valor": "       RAMAL"
+											},
+											{
+												"Valor": "BASE IMPOSABLE:         534,68 TIPUS IMPOSITIU:       4,00% ENDER.:         0,00"
+											},
+											{
+												"Valor": " BON/SBV:   0%"
+											},
+											{
+												"Valor": "QUOTA:         21,39 EUROS   REDUCCIO:       0,00 %"
+											},
+											{
+												"Valor": "            QUOTA TOTAL:       21,39 EUROS"
+											},
+											{
+												"Valor": ""
+											},
+											{
+												"Valor": ""
+											},
+											{
+												"Valor": ""
+											},
+											{
+												"Valor": ""
+											},
+											{
+												"Valor": "       CONCEPTE: 1.290.00   NUM. INGRÈS: 23 2000001  REF.: 00009-2222"
+											}
+										]
+									},
+									"CodiINE10": "0810170005",
+									"CodiPostalDestinatari": "08003",
+									"ConcepteTributari": "05",
+									"Contret": null,
+									"DNINIFContribuent": "00000000",
+									"DNINIFRepresentant": null,
+									"DataLiquidacio": "/Date(1673218800000+0100)/",
+									"DataVencimentAutoliquidacio": "/Date(1673996400000+0100)/",
+									"DestinatariFiscal": "",
+									"DocumentAbonare": null,
+									"Exercici": 2023,
+									"ImportDeute": 21.39,
+									"MunicipiFiscal": "BARCELONA",
+									"NomContribuent": "NOM I COGNOMS CONTRIBUENT",
+									"NomRepresentant": null,
+									"NumeroReferenciaAutoliquidacio": 2300066,
+									"ReferenciaAjuntament": "0002300066",
+									"ReferenciaTributaria": "00009-2222",
+									"Subconceptes": [
+										{
+											"Codi": "05",
+											"Import": 21.39
+										}
+									]
+								},
+								"CodiBarres": "01234567890123456789",
+								"Identificadora": "1300233018",
+								"Pagat": true,
+								"Referencia": "0123456",
+								"UrlPagament": "https://preprod.orgt.diba.cat/ca/TramitsPagaments/TargetaBancaria/tarcreP1?pEmisora=084992&pReferencia=1234&pIdentificadora=1300233018&pImportInput=21,39&pNmdocu=126055546&pCodibarres=123456789123&pBancaOnline=True",
+								"DocumentAbonareBase64": "bytesPDFenFormatBase64=="
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"ORGT.WebServices.AutoliquidacioGenerica.AutoliquidacioGenerica": {
+			"required": [
+				"CodiINE10",
+				"Exercici",
+				"ConcepteTributari",
+				"AnyContret",
+				"Contret",
+				"NumeroReferenciaAutoliquidacio",
+				"ReferenciaAjuntament",
+				"NomContribuent",
+				"DNINIFContribuent",
+				"DestinatariFiscal",
+				"AdrecaFiscalDestinatari",
+				"CodiPostalDestinatari",
+				"MunicipiFiscal",
+				"ImportDeute",
+				"AdrecaObjecteTributari",
+				"DataLiquidacio",
+				"Subconceptes",
+				"Caixeti",
+				"DataVencimentAutoliquidacio"
+			],
+			"properties": {
+				"CodiINE10": {
+					"type": "string",
+					"uniqueItems": false
+				},
+				"Exercici": {
+					"type": "integer",
+					"format": "int32",
+					"uniqueItems": false
+				},
+				"ConcepteTributari": {
+					"type": "string",
+					"uniqueItems": false
+				},
+				"AnyContret": {
+					"type": "integer",
+					"format": "int32",
+					"uniqueItems": false
+				},
+				"Contret": {
+					"type": "string",
+					"uniqueItems": false
+				},
+				"NumeroReferenciaAutoliquidacio": {
+					"type": "integer",
+					"format": "int64",
+					"uniqueItems": false
+				},
+				"ReferenciaAjuntament": {
+					"type": "string",
+					"uniqueItems": false
+				},
+				"NomContribuent": {
+					"type": "string",
+					"uniqueItems": false
+				},
+				"DNINIFContribuent": {
+					"type": "string",
+					"uniqueItems": false
+				},
+				"NomRepresentant": {
+					"type": "string",
+					"uniqueItems": false
+				},
+				"DNINIFRepresentant": {
+					"type": "string",
+					"uniqueItems": false
+				},
+				"DestinatariFiscal": {
+					"type": "string",
+					"uniqueItems": false
+				},
+				"AdrecaFiscalDestinatari": {
+					"type": "string",
+					"uniqueItems": false
+				},
+				"CodiPostalDestinatari": {
+					"type": "string",
+					"uniqueItems": false
+				},
+				"MunicipiFiscal": {
+					"type": "string",
+					"uniqueItems": false
+				},
+				"ImportDeute": {
+					"type": "number",
+					"format": "decimal",
+					"uniqueItems": false
+				},
+				"AdrecaObjecteTributari": {
+					"type": "string",
+					"uniqueItems": false
+				},
+				"DataLiquidacio": {
+					"type": "string",
+					"format": "date-time",
+					"uniqueItems": false
+				},
+				"Subconceptes": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ORGT.WebServices.AutoliquidacioGenerica.Subconcepte"
+					},
+					"uniqueItems": false
+				},
+				"Caixeti": {
+					"$ref": "#/definitions/ORGT.WebServices.AutoliquidacioGenerica.Caixeti"
+				},
+				"DataVencimentAutoliquidacio": {
+					"type": "string",
+					"format": "date-time",
+					"uniqueItems": false
+				},
+				"ReferenciaTributaria": {
+					"type": "string",
+					"uniqueItems": false
+				},
+				"DocumentAbonare": {
+					"type": "array",
+					"items": {
+						"type": "string",
+						"format": "byte"
+					},
+					"uniqueItems": false
+				}
+			},
+			"type": "object",
+			"format": "ORGT.WebServices.AutoliquidacioGenerica.AutoliquidacioGenerica",
+			"example": {
+				"application/json": {
+							"CodiINE10": "0824570005",
+							"Exercici": "2024",
+							"ConcepteTributari": "20",
+							"AnyContret": "2024",
+							"Contret": "33019",
+							"NumeroReferenciaAutoliquidacio": 0,
+							"ReferenciaAjuntament": "",
+							"NomContribuent": "NOM COGNOM",
+							"DNINIFContribuent": "11111111",
+							"DestinatariFiscal": "",
+							"AdrecaFiscalDestinatari": "ADREÇA MAJUSCULES",
+							"CodiPostalDestinatari": "08923",
+							"MunicipiFiscal": "SANTA COLOMA DE GRAMANET",
+							"ImportDeute": "38",
+							"AdrecaObjecteTributari": "ADREÇA MAJUSCULES",
+							"DataLiquidacio": "/Date(1744070400000)/",
+							"Subconceptes": "",
+							"Caixeti": {
+								"Linia": [
+									{
+										"Valor": ""
+									},
+									{
+										"Valor": ""
+									},
+									{
+										"Valor": ""
+									},
+									{
+										"Valor": ""
+									},
+									{
+										"Valor": ""
+									}
+								]
+							},
+							"DataVencimentAutoliquidacio": "/Date(1746662400000)/",
+							"ReferenciaTributaria": ""
+				}
+			}
+		},
+		"ORGT.WebServices.AutoliquidacioGenerica.AutoliquidacioGenericaResultREST": {
+			"required": [
+				"Referencia",
+				"Identificadora",
+				"CodiBarres",
+				"Autoliquidacio",
+				"Pagat"
+			],
+			"properties": {
+				"DocumentAbonareBase64": {
+					"type": "string",
+					"uniqueItems": false
+				},
+				"Referencia": {
+					"type": "string",
+					"uniqueItems": false
+				},
+				"Identificadora": {
+					"type": "string",
+					"uniqueItems": false
+				},
+				"CodiBarres": {
+					"type": "string",
+					"uniqueItems": false
+				},
+				"Autoliquidacio": {
+					"$ref": "#/definitions/ORGT.WebServices.AutoliquidacioGenerica.AutoliquidacioGenerica"
+				},
+				"UrlPagament": {
+					"type": "string",
+					"uniqueItems": false
+				},
+				"Pagat": {
+					"type": "boolean",
+					"uniqueItems": false
+				}
+			},
+			"type": "object",
+			"format": "ORGT.WebServices.AutoliquidacioGenerica.AutoliquidacioGenericaResultREST"
+		},
+		"ORGT.WebServices.AutoliquidacioGenerica.Caixeti": {
+			"required": [
+				"Linia"
+			],
+			"properties": {
+				"Linia": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ORGT.WebServices.AutoliquidacioGenerica.LiniaCaixeti"
+					},
+					"uniqueItems": false
+				}
+			},
+			"type": "object",
+			"format": "ORGT.WebServices.AutoliquidacioGenerica.Caixeti"
+		},
+		"ORGT.WebServices.AutoliquidacioGenerica.LiniaCaixeti": {
+			"required": [
+				"Valor"
+			],
+			"properties": {
+				"Valor": {
+					"type": "string",
+					"uniqueItems": false
+				}
+			},
+			"type": "object",
+			"format": "ORGT.WebServices.AutoliquidacioGenerica.LiniaCaixeti"
+		},
+		"ORGT.WebServices.AutoliquidacioGenerica.Subconcepte": {
+			"required": [
+				"Codi",
+				"Import"
+			],
+			"properties": {
+				"Codi": {
+					"type": "string",
+					"uniqueItems": false
+				},
+				"Import": {
+					"type": "number",
+					"format": "decimal",
+					"uniqueItems": false
+				}
+			},
+			"type": "object",
+			"format": "ORGT.WebServices.AutoliquidacioGenerica.Subconcepte"
+		}
+	}
+}
