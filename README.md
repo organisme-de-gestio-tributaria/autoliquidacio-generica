@@ -23,8 +23,8 @@ A grans trets el web service permet:
 1. Generació d’un nou abonaré per una autoliquidació ja entrada, pel cas de què el primer abonaré s’hagi extraviat. Cal aportar les mateixes dades que en el cas de la consulta.
 
 ## Exemples de crides i respostes
-A continuació es presenten diversos exemples de crides i respostes. Podeu trobar bés informació a:
-* **[Fitxer swagger disponible en aquest repositori](https://github.com/organisme-de-gestio-tributaria/autoliquidacio-generica/blob/main/swagger%20AutoliquidacioGenerica.json). Podeu crear el vostre client de forma automàtica a partir d'aquest fitxer.**
+A continuació es presenten diversos exemples de crides i respostes. Podeu trobar més informació a:
+* **[Especificació swagger](https://github.com/organisme-de-gestio-tributaria/autoliquidacio-generica/blob/main/swagger%20AutoliquidacioGenerica.json). Podeu crear el vostre client de forma automàtica a partir d'aquest fitxer.**
 * [Comentaris del WSDL](https://wsproves.orgt.diba.cat/AutoliquidacioGenerica/AutoliquidacioGenericaService.svc/mex?singleWsdl). Podeu cancel·lar la sol·licitud de certificat a l'accedir al WSDL. Malgrat que aquest wsdl està disponible només per la versió SOAP, els noms dels camps i les explicacions són les mateixes que per la versió REST.
 * L’esquema de validació de les dades rebudes es troba en el mateix webservice a: https://wsproves.orgt.diba.cat/AutoliquidacioGenerica/schema/AutoliquidacioGenerica.xsd 
 * Cal notar que totes les dades de tipus text han d'estar en majúscules.
