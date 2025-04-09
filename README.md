@@ -12,15 +12,15 @@ Respecte a la seguretat, cal tenir en compte:
 1. Es comprovarà que les autoliquidacions enviades corresponen a l’Ajuntament associat al certificat. No obstant, per les proves es podrà fer servir qualsevol certificat d'òrgan que tingui un CIF associat, per exemple per les proves d'una empresa de software externa a l'Ajuntament.
 1. **Previ a les proves cal comunicar el certificat utilitzat a l’ORGT ja que és necessari instal·lar la clau pública als servidors de la ORGT.** Vegeu el procés de sol·licitud a la [pàgina principal](https://github.com/organisme-de-gestio-tributaria/organisme-de-gestio-tributaria)
 
-A grans trets el web service permet:
-1. Donar d’alta una autoliquidació, detectant duplicitats (mateix Ajuntament i número de referència de l’autoliquidació), i generant l’abonaré, el codi de barres per pagar-lo al banc, i la URL per fer el pagament a la seu de l'ORGT. També es poden gravar autoliquidacions amb import zero, per exemple en casos d'exempció o benefici fiscal del 100%. El camp NumeroReferenciaAutoliquidacio és opcional, si es deixa a zero el sistema li assigna un número. Si es vol barrejar autoliquidacions amb número assignat pel sistema amb autoliquidacions amb número explícit, es recomana que aquest número explícit sigui de la forma AAAANNNNNN, on AAAA és l'any en curs, i NNNNNN és un número seqüencial dins d'aquest any. Així s'eviten col·lisions entre els números assignats pel sistema i els explícits.
-1. Consulta d’una autoliquidació prèviament entrada. L'autoliquidació s'identifica amb:
+Els endpoints disponibles són:
+1. **AltaAutoliquidacioREST**. Donar d’alta una autoliquidació, detectant duplicitats (mateix Ajuntament i número de referència de l’autoliquidació), i generant l’abonaré, el codi de barres per pagar-lo al banc, i la URL per fer el pagament a la seu de l'ORGT. També es poden gravar autoliquidacions amb import zero, per exemple en casos d'exempció o benefici fiscal del 100%. El camp NumeroReferenciaAutoliquidacio és opcional, si es deixa a zero el sistema li assigna un número. Si es vol barrejar autoliquidacions amb número assignat pel sistema amb autoliquidacions amb número explícit, es recomana que aquest número explícit sigui de la forma AAAANNNNNN, on AAAA és l'any en curs, i NNNNNN és un número seqüencial dins d'aquest any. Així s'eviten col·lisions entre els números assignats pel sistema i els explícits.
+1. **ConsultaAutoliquidacioREST**. Consulta d’una autoliquidació prèviament entrada. L'autoliquidació s'identifica amb:
    -	CodiINE10
    -	Exercici
    -	ConcepteTributari
    -	NumeroReferenciaAutoliquidacio
    - Cal especificar a més el camp DNINIFContribuent, que serveix com a doble comprovació per evitar que al web service de proves, que no té protecció per certificat, un intrús pugui fer proves amb NumeroReferenciaAutoliquidacio correlatius fins encertar alguna autoliquidació i obtenir les seves dades.
-1. Generació d’un nou abonaré per una autoliquidació ja entrada, pel cas de què el primer abonaré s’hagi extraviat. Cal aportar les mateixes dades que en el cas de la consulta.
+1. **GenerarAbonareREST**. Generació d’un nou abonaré per una autoliquidació ja entrada, pel cas de què el primer abonaré s’hagi extraviat. Cal aportar les mateixes dades que en el cas de la consulta.
 
 ## Exemples de crides i respostes
 A continuació es presenten diversos exemples de crides i respostes. Podeu trobar més informació a:
