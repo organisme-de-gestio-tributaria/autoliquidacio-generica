@@ -1,0 +1,77 @@
+{
+	"Autoliquidacio": {
+		"AdrecaFiscalDestinatari": "PL GAS, 0002",
+		"AdrecaObjecteTributari": "",
+		"AnyContret": 0,
+		"Caixeti": {
+			"Linia": [
+				{
+					"Valor": "OBJECTE TRIBUTARI: PL AAAA 102 ,"
+				},
+				{
+					"Valor": "DESCR:"
+				},
+				{
+					"Valor": "       RAMAL"
+				},
+				{
+					"Valor": "BASE IMPOSABLE:         534,68 TIPUS IMPOSITIU:       4,00% ENDER.:         0,00"
+				},
+				{
+					"Valor": " BON/SBV:   0%"
+				},
+				{
+					"Valor": "QUOTA:         21,39 EUROS   REDUCCIO:       0,00 %"
+				},
+				{
+					"Valor": "            QUOTA TOTAL:       21,39 EUROS"
+				},
+				{
+					"Valor": ""
+				},
+				{
+					"Valor": ""
+				},
+				{
+					"Valor": ""
+				},
+				{
+					"Valor": ""
+				},
+				{
+					"Valor": "       CONCEPTE: 1.290.00   NUM. INGRÈS: 23 2000001  REF.: 00000-2222"
+				}
+			]
+		},
+		"CodiINE10": "0811111111",
+		"CodiPostalDestinatari": "08000",
+		"ConcepteTributari": "05",
+		"Contret": null,
+		"DNINIFContribuent": "11111111",
+		"DNINIFRepresentant": null,
+		"DataLiquidacio": "/Date(1673218800000+0100)/",
+		"DataVencimentAutoliquidacio": "/Date(1673996400000+0100)/",
+		"DestinatariFiscal": "",
+		"DocumentAbonare": null,
+		"Exercici": 2023,
+		"ImportDeute": 21.39,
+		"MunicipiFiscal": "BARCELONA",
+		"NomContribuent": "NOM",
+		"NomRepresentant": null,
+		"NumeroReferenciaAutoliquidacio": 2300066,
+		"ReferenciaAjuntament": "0002300000",
+		"ReferenciaTributaria": "00000-2222",
+		"Subconceptes": [
+			{
+				"Codi": "05",
+				"Import": 21.39
+			}
+		]
+	},
+	"CodiBarres": "90521084992000000000000000000000000000",
+	"Identificadora": "1100233000",
+	"Pagat": false,
+	"Referencia": "50000000000",
+	"UrlPagament": "https://preprod.orgt.diba.cat/ca/TramitsPagaments/TargetaBancaria/tarcreP1?pEmisora=084992&pReferencia=5009280000&pIdentificadora=1300230000&pImportInput=21,39&pNmdocu=146588541&pCodibarres=9052108499250000000000000&pBancaOnline=True",
+	"DocumentAbonareBase64": null
+}

@@ -1,0 +1,34 @@
+{
+	"CodiINE10": "1111111111",
+	"Exercici": 2024,
+	"ConcepteTributari": 20,
+	"AnyContret": 2024,
+	"Contret": 12345,
+	"NumeroReferenciaAutoliquidacio": 12345,
+	"ReferenciaAjuntament": 33019,
+	"NomContribuent": "NOM COGNOMS",
+	"DNINIFContribuent": 1111111,
+	"DestinatariFiscal": "",
+	"AdrecaFiscalDestinatari": "CARRER ...",
+	"CodiPostalDestinatari": "08000",
+	"MunicipiFiscal": "NOM MUNICIPI",
+	"ImportDeute": 38,
+	"AdrecaObjecteTributari": "ADREÇA",
+	"DataLiquidacio": "/Date(1707558696000)/",
+	"Subconceptes": "",
+	"Caixeti": {
+		"Linia": [
+			{
+				"Valor": "TAXA PER A LA COMUNICACIÓ PRÈVIA D’OBRES O LA SOL·LICITUD DE LLICÈNCIA D’OBRA"
+			},
+			{
+				"Valor": "DOMICILI TRIBUTARI: CARRER ..."
+			},
+			{
+				"Valor": "IMPORT: 38 €"
+			}
+		]
+	},
+	"DataVencimentAutoliquidacio": "/Date(1710064296000)/",
+	"ReferenciaTributaria": ""
+}

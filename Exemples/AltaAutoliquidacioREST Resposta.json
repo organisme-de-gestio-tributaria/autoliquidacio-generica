@@ -1,0 +1,59 @@
+{
+  "Autoliquidacio": {
+    "AdrecaFiscalDestinatari": "ADREÇA MAJUSCULES",
+    "AdrecaObjecteTributari": "ADREÇA MAJUSCULES",
+    "AnyContret": 0,
+    "Caixeti": {
+      "Linia": [
+        {
+          "Valor": ""
+        },
+        {
+          "Valor": ""
+        },
+        {
+          "Valor": ""
+        },
+        {
+          "Valor": ""
+        },
+        {
+          "Valor": ""
+        }
+      ]
+    },
+    "CodiINE10": "0824570005",
+    "CodiPostalDestinatari": "08923",
+    "ConcepteTributari": "20",
+    "Contret": null,
+    "DNINIFContribuent": "11111111H",
+    "DNINIFRepresentant": null,
+    "DataLiquidacio": "/Date(1708729200000+0100)/",
+    "DataVencimentAutoliquidacio": "/Date(1719180000000+0200)/",
+    "DestinatariFiscal": "",
+    "DocumentAbonare": [
+      37,
+	  45,
+      ],
+    "Exercici": 2024,
+    "ImportDeute": 38,
+    "MunicipiFiscal": "MUNICIPI",
+    "NomContribuent": "NOM COGNOM",
+    "NomRepresentant": null,
+    "NumeroReferenciaAutoliquidacio": 41837,
+    "ReferenciaAjuntament": "0000000000",
+    "ReferenciaTributaria": "",
+    "Subconceptes": [
+      {
+        "Codi": "20",
+        "Import": 38
+      }
+    ]
+  },
+  "CodiBarres": "9052108499250092800000000000000",
+  "Identificadora": "130012121212",
+  "Pagat": false,
+  "Referencia": "5000000000",
+  "UrlPagament": "https://preprod.orgt.diba.cat/ca/TramitsPagaments/TargetaBancaria/tarcreP1?pEmisora=084992&pReferencia=500928104103&pIdentificadora=1300244177&pImportInput=38&pNmdocu=146588539&pCodibarres=90000000000&pBancaOnline=True",
+  "DocumentAbonareBase64": "JVB..."
+}

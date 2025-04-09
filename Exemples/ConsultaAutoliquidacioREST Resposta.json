@@ -1,0 +1,77 @@
+{
+	"Autoliquidacio": {
+		"AdrecaFiscalDestinatari": "PL XXX, 0002",
+		"AdrecaObjecteTributari": "",
+		"AnyContret": 0,
+		"Caixeti": {
+			"Linia": [
+				{
+					"Valor": "OBJECTE TRIBUTARI: PL YYY 102 ,"
+				},
+				{
+					"Valor": "DESCR:"
+				},
+				{
+					"Valor": "       XXX"
+				},
+				{
+					"Valor": "BASE IMPOSABLE:         534,68 TIPUS IMPOSITIU:       4,00% ENDER.:         0,00"
+				},
+				{
+					"Valor": " BON/SBV:   0%"
+				},
+				{
+					"Valor": "QUOTA:         21,39 EUROS   REDUCCIO:       0,00 %"
+				},
+				{
+					"Valor": "            QUOTA TOTAL:       21,39 EUROS"
+				},
+				{
+					"Valor": ""
+				},
+				{
+					"Valor": ""
+				},
+				{
+					"Valor": ""
+				},
+				{
+					"Valor": ""
+				},
+				{
+					"Valor": "       CONCEPTE: 1.290.00   NUM. INGRÈS: 23 2000001  REF.: 01111-2222"
+				}
+			]
+		},
+		"CodiINE10": "0000000000",
+		"CodiPostalDestinatari": "08000",
+		"ConcepteTributari": "05",
+		"Contret": null,
+		"DNINIFContribuent": "11111111",
+		"DNINIFRepresentant": null,
+		"DataLiquidacio": "/Date(1673218800000+0100)/",
+		"DataVencimentAutoliquidacio": "/Date(1673996400000+0100)/",
+		"DestinatariFiscal": "",
+		"DocumentAbonare": null,
+		"Exercici": 2023,
+		"ImportDeute": 21.39,
+		"MunicipiFiscal": "BARCELONA",
+		"NomContribuent": "XXXXXXXX",
+		"NomRepresentant": null,
+		"NumeroReferenciaAutoliquidacio": 2300000,
+		"ReferenciaAjuntament": "0002300000",
+		"ReferenciaTributaria": "01111-2222",
+		"Subconceptes": [
+			{
+				"Codi": "05",
+				"Import": 21.39
+			}
+		]
+	},
+	"CodiBarres": "905210849925003682644991300233018000011111",
+	"Identificadora": "130011111",
+	"Pagat": true,
+	"Referencia": "500368264499",
+	"UrlPagament": "https://preprod.orgt.diba.cat/ca/TramitsPagaments/TargetaBancaria/tarcreP1?pEmisora=084992&pReferencia=500368264499&pIdentificadora=1300233018&pImportInput=21,39&pNmdocu=126055546&pCodibarres=905210849925003682644991300233018000011111&pBancaOnline=True",
+	"DocumentAbonareBase64": null
+}
