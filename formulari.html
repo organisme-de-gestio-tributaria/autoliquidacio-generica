@@ -1,0 +1,239 @@
+﻿<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proves enviament AutoLiquidació</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            height: 100%;
+        }
+        form {
+            background-color: #fff;
+            padding: 15px;
+            width: 800px;
+        }
+        div {
+            margin-bottom: 3px;
+        }
+        label {
+            display: inline-block;
+            width: 470px;
+            margin-bottom: 1px;
+            font-weight: bold;
+            text-align: right;
+        }
+        input {
+            width: calc(100% - 480px);
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .button-container {
+            text-align: center;
+        }
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: inline-block;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <form id="jsonForm">
+        <div id="loadingText" style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);font-style: italic;color: #666;background-color:#DDDDDD; display: none; block;text-align: center;font-size: 1.5em;width:500px;">Esperi...</div>
+        <div>
+            <label for="CodiINE10">Codi INE10 Municipi(*):</label>
+            <input type="text" id="CodiINE10" name="CodiINE10" value="0824570005"><br>
+        </div>
+        <div>
+            <label for="Exercici">Exercici(*):</label>
+            <input type="text" id="Exercici" name="Exercici" value="2024"><br>
+        </div>
+        <div>
+            <label for="ConcepteTributari">Concepte tributari(*):</label>
+            <input type="text" id="ConcepteTributari" name="ConcepteTributari" value="20"><br>
+        </div>
+        <div>
+            <label for="AnyContret">Any del contret(*):</label>
+            <input type="text" id="AnyContret" name="AnyContret" value="2024"><br>
+        </div>
+        <div>
+            <label for="Contret">Nº de contret(*):</label>
+            <input type="text" id="Contret" name="Contret" value="33019"><br>
+        </div>
+        <div>
+            <label for="ReferenciaAjuntament">Referencia de l'ajuntament (opcional):</label>
+            <input type="text" id="ReferenciaAjuntament" name="ReferenciaAjuntament" value=""><br>
+        </div>
+        <div>
+            <label for="NomContribuent">Nom contribuent:</label>
+            <input type="text" id="NomContribuent" name="NomContribuent" value="NOM COGNOM" onkeydown="upperCaseF(this)"><br>
+        </div>
+        <div>
+            <label for="DNINIFContribuent">DNI, NIF o NIE del contribuent (sense dígit) (*):</label>
+            <input type="text" id="DNINIFContribuent" name="DNINIFContribuent" value="11111111"><br>
+        </div>
+        <div>
+            <label for="DestinatariFiscal">Nom del destinatari de la correspondència fiscal (opcional):</label>
+            <input type="text" id="DestinatariFiscal" name="DestinatariFiscal" value="" onkeydown="upperCaseF(this)"><br>
+        </div>
+        <div>
+            <label for="AdrecaFiscalDestinatari">Adreça fiscal del destinatari(*):</label>
+            <input type="text" id="AdrecaFiscalDestinatari" name="AdrecaFiscalDestinatari" value="ADREÇA MAJUSCULES" onkeydown="upperCaseF(this)"><br>
+        </div>
+        <div>
+            <label for="CodiPostalDestinatari">Codi postal del destinatari (*):</label>
+            <input type="text" id="CodiPostalDestinatari" name="CodiPostalDestinatari" value="08923"><br>
+        </div>
+        <div>
+            <label for="MunicipiFiscal">Municipi fiscal(*):</label>
+            <input type="text" id="MunicipiFiscal" name="MunicipiFiscal" value="SANTA COLOMA DE GRAMANET" onkeydown="upperCaseF(this)"><br>
+        </div>
+        <div>
+            <label for="ImportDeute">Import deute(*) - Ex: 12345.67 (*):</label>
+            <input type="text" id="ImportDeute" name="ImportDeute" value="38"><br>
+        </div>
+        <div>
+            <label for="AdrecaObjecteTributari">Adreça de l'objecte tributari (*):</label>
+            <input type="text" id="AdrecaObjecteTributari" name="AdrecaObjecteTributari" value="ADREÇA MAJUSCULES" onkeydown="upperCaseF(this)"><br>
+        </div>
+        <div>
+            <label for="DataLiquidacio">Data de liquidacio (*):</label>
+            <input type="date" id="DataLiquidacio" name="DataLiquidacio" value="2024-02-24">
+        </div>
+        <div>
+            <label for="Subconceptes">Subconceptes (opcional):</label>
+            <input type="text" id="Subconceptes" name="Subconceptes" value="" readonly><br>
+        </div>
+        <div>
+            <label for="Caixeti">Caixetí (opcional):</label> <input type="text" id="Caixeti1" name="Caixeti1" value="" onkeydown="upperCaseF(this)"><br>
+            <label></label><input type="text" id="Caixeti2" name="Caixeti2" value="" onkeydown="upperCaseF(this)"><br>
+            <label></label><input type="text" id="Caixeti3" name="Caixeti3" value="" onkeydown="upperCaseF(this)"><br>
+            <label></label><input type="text" id="Caixeti4" name="Caixeti4" value="" onkeydown="upperCaseF(this)"><br>
+            <label></label><input type="text" id="Caixeti5" name="Caixeti5" value="" onkeydown="upperCaseF(this)"><br>
+        </div>
+        <div>
+            <label for="DataVencimentAutoliquidacio">Data de venciment de l'autoliquidació (*):</label>
+            <input type="date" id="DataVencimentAutoliquidacio" name="DataVencimentAutoliquidacio" value="2024-06-24">
+        </div>
+        <div>
+            <label for="ReferenciaTributaria">Referència tributaria:</label>
+            <input type="text" id="ReferenciaTributaria" name="ReferenciaTributaria" value=""><br>
+        </div>
+        <div class="button-container">
+            <button onclick="submitForm()">Submit</button>
+        </div>
+    </form>
+    <script>
+    // Posem data venciment autoliquidació d'aqui a 30 dies al carregar la web. Data liquidacio a avui
+    document.getElementById('DataVencimentAutoliquidacio').value = new Date(new Date().setDate(new Date().getDate() + 30)).toISOString().split('T')[0];
+    document.getElementById('DataLiquidacio').value = new Date().toISOString().split('T')[0];
+    function upperCaseF(a) {
+		setTimeout(function(){
+			a.value = a.value.toUpperCase();
+		}, 1);
+	}
+	function downloadFileObject(base64String) {
+		const linkSource = base64String;
+		const downloadLink = document.createElement("a");
+		const fileName = "documentAbonare.pdf";
+		downloadLink.href = linkSource;
+		downloadLink.download = fileName;
+		downloadLink.click();
+	}
+	function downloadAsPDF(base64String) {
+		if (base64String.startsWith("JVB")) {
+			base64String = "data:application/pdf;base64," + base64String;
+			downloadFileObject(base64String);
+		} else if (base64String.startsWith("data:application/pdf;base64")) {
+			downloadFileObject(base64String);
+		} else {
+			alert("Error: PDF no vàlid");
+			throw "Error convertint string base64 a pdf"
+		}
+	}
+    function submitForm() {
+	    event.preventDefault();
+		var form = document.getElementById('jsonForm');
+
+		var dataLiquidacio = document.getElementById('DataLiquidacio').value;
+		var dataVenciment = document.getElementById('DataVencimentAutoliquidacio').value;
+		var epochLiq = new Date(dataLiquidacio).getTime();
+		var epochVenc = new Date(dataVenciment).getTime();
+
+		var formData = {
+			"CodiINE10": document.getElementById('CodiINE10').value,
+			"Exercici": document.getElementById('Exercici').value,
+			"ConcepteTributari": document.getElementById('ConcepteTributari').value,
+			"AnyContret": document.getElementById('AnyContret').value,
+			"Contret": document.getElementById('Contret').value,
+			"NumeroReferenciaAutoliquidacio": 0, // Assignat automàticament
+			"ReferenciaAjuntament": document.getElementById('ReferenciaAjuntament').value,
+			"NomContribuent": document.getElementById('NomContribuent').value,
+			"DNINIFContribuent": document.getElementById('DNINIFContribuent').value,
+			"DestinatariFiscal": document.getElementById('DestinatariFiscal').value,
+			"AdrecaFiscalDestinatari": document.getElementById('AdrecaFiscalDestinatari').value,
+			"CodiPostalDestinatari": document.getElementById('CodiPostalDestinatari').value,
+			"MunicipiFiscal": document.getElementById('MunicipiFiscal').value,
+			"ImportDeute": document.getElementById('ImportDeute').value,
+			"AdrecaObjecteTributari": document.getElementById('AdrecaObjecteTributari').value,
+			"DataLiquidacio": "\\/Date(" + epochLiq + ")\\/",
+			"Subconceptes": document.getElementById('Subconceptes').value,
+			"Caixeti": {"Linia": [  {"Valor": document.getElementById('Caixeti1').value},
+									{"Valor": document.getElementById('Caixeti2').value},
+								{"Valor": document.getElementById('Caixeti3').value},
+								{"Valor": document.getElementById('Caixeti4').value},
+								{"Valor": document.getElementById('Caixeti5').value}
+								]
+					},
+			"DataVencimentAutoliquidacio": "\\/Date(" + epochVenc + ")\\/",
+			"ReferenciaTributaria": document.getElementById('ReferenciaTributaria').value
+		};
+		var missatgeJson = JSON.stringify(formData)
+			.replaceAll("\\/Date(", "\/Date(")   // Hem de canvia jsonify perquè \\/Date no és acceptat pel webservice REST ja que no ha de tenir \\ sinó \
+			.replaceAll("\\/", "\/");            // El final tampoc. Exemple correcte: "DataLiquidacio": "\/Date(1707558696000)\/"    + info: https://www.newtonsoft.com/json/help/html/DatesInJSON.htm
+		console.log("Missatge JSON enviat a AltaLiquidacio: " + missatgeJson);
+
+        loadingText.style.display = 'block';
+
+		fetch('https://wsproves.orgt.diba.cat/AutoliquidacioGenerica/AutoliquidacioGenericaServiceREST.svc/AltaAutoliquidacioREST', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json'},
+			body: missatgeJson
+		})
+		.then(response => {
+		    var resposta = response.text();  // tipus Object Promise
+			resposta.then(function(result) {
+				try {
+					// Si el resultat de la crida es pot convertir a JSON és que ha funcionat correctament
+					resultJson = JSON.parse(result);
+					// Crida ha anat OK: mostrem JSON retornat pel webservice
+					var prettyJson = JSON.stringify(resultJson, null, 2); // spacing level = 2
+					document.querySelector('body').innerHTML = '<h1>Alta de Autoliquidació correcta. Resposta JSON:<div><textarea cols="130" rows="30">' + prettyJson + '</textarea>';
+					// Descarreguem PDF
+					downloadAsPDF(resultJson.DocumentAbonareBase64);
+					alert("Abonaré descarregat. Consulta les descàrregues del navegador");
+				} catch (error) {
+					// Mostrem error carregont contingut tornat pel webserver
+					document.querySelector('body').innerHTML = result;
+				}
+			});
+		})
+		.catch(error => {
+			console.error('Error:', error);
+		});
+    }
+    </script>
+</body>
+</html>
