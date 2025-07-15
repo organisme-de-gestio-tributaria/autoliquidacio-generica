@@ -1,5 +1,7 @@
 # Webservice d'autoliquidacions genèriques per ajuntaments
 
+Aquesta és la documentació tècnica del webservice. En cap cas s'explica la part funcional i de procediment. En cas de dubte sobre aquestes parts, contacteu amb el/la Cap de Serveis Tributaris Generals de l'ORGT.
+
 Cal accedir al webservice mitjançat l'endpoint REST. L’especificació es pot obtenir del [fitxer swagger disponible en aquest repositori](https://github.com/organisme-de-gestio-tributaria/autoliquidacio-generica/blob/main/swagger%20AutoliquidacioGenerica.json).
 
 El servei es troba a les següents URL's:
