@@ -18,11 +18,13 @@ Els endpoints disponibles són:
    - Es poden gravar autoliquidacions amb import zero, per exemple en casos d'exempció o benefici fiscal del 100%.
    - El camp NumeroReferenciaAutoliquidacio és obligatori però un valor de zero fa que el webservice li assigni un número que es retorna amb la resposta.
    - Si es vol barrejar autoliquidacions amb número assignat pel sistema amb autoliquidacions amb número explícit, es recomana que aquest número explícit sigui de la forma AAAANNNNNN, on AAAA és l'any en curs, i NNNNNN és un número seqüencial dins d'aquest any. Així s'eviten col·lisions entre els números assignats pel sistema i els explícits.
+   - Disposeu d'una [llista de codis tributaris de l'ORGT](https://github.com/organisme-de-gestio-tributaria/organisme-de-gestio-tributaria/blob/main/Codis%20de%20concepte%20tributari.txt). Aquesta llista pot haver estat ampliada de forma posterior a aquesta publicació.
+   - Disposeu de la [descripció i restriccions completes de les dades a enviar aquí](https://wsproves.orgt.diba.cat/AutoliquidacioGenerica/AutoliquidacioGenericaService.svc/mex?singleWsdl) i [a l'esquema de dades XSD](https://wsproves.orgt.diba.cat/AutoliquidacioGenerica/schema/AutoliquidacioGenerica.xsd ).
    - **[Disposeu d'un formulari per a fer crides de prova al endpoint AltaAutoliquidacioREST de proves](https://github.com/organisme-de-gestio-tributaria/autoliquidacio-generica/blob/main/formulari.html)**. Si heu realitzat el procés de sol·licitud d'adhesió al webservice i utilitzeu aquest formulari amb el certificat compartit amb la ORGT podeu veure el funcionament de l'endpoint de forma senzilla.
 1. **ConsultaAutoliquidacioREST**. Consulta d’una autoliquidació prèviament entrada. L'autoliquidació s'identifica amb:
    -	CodiINE10
    -	Exercici
-   -	ConcepteTributari
+   -	ConcepteTributari. Disposeu d'una [llista de codis tributaris de l'ORGT](https://github.com/organisme-de-gestio-tributaria/organisme-de-gestio-tributaria/blob/main/Codis%20de%20concepte%20tributari.txt). Aquesta llista pot haver estat ampliada de forma posterior a aquesta publicació.
    -	NumeroReferenciaAutoliquidacio
    - Cal especificar a més el camp DNINIFContribuent, que serveix com a doble comprovació per evitar que al web service de proves, que no té protecció per certificat, un intrús pugui fer proves amb NumeroReferenciaAutoliquidacio correlatius fins encertar alguna autoliquidació i obtenir les seves dades.
 1. **GenerarAbonareREST**. Generació d’un nou abonaré per una autoliquidació ja entrada, pel cas de què el primer abonaré s’hagi extraviat. Cal aportar les mateixes dades que en el cas de la consulta.
