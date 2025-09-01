@@ -16,7 +16,7 @@ Respecte a la seguretat, cal tenir en compte:
 
 Els endpoints disponibles són:
 1. **AltaAutoliquidacioREST**. Donar d’alta una autoliquidació, detectant duplicitats (mateix Ajuntament i número de referència de l’autoliquidació), i generant l’abonaré, el codi de barres per pagar-lo al banc, i la URL per fer el pagament a la seu de l'ORGT. Cal notar que:
-   - La URL de pagament correspon a una passarel·la de pagament on cal introduir manualment les dades del mitjà de pagament (targeta bancària, compte corrent, etc.).
+   - La URL de pagament correspon a la passarel·la de pagament de l'ORGT on cal introduir manualment les dades del mitjà de pagament (targeta bancària, compte corrent, etc.). És la mateixa pàgina on aniríem si entréssim a la web de l'ORGT i seleccionéssim "Tràmits i pagaments" i després "Pagament d'impostos i multes" i escollim el pagament amb targeta bancària o Bizum. L'avantatge que té aquesta URL és que ens estalviem posar referència i identificadora de l'abonaré.
    - Es poden gravar autoliquidacions amb import zero, per exemple en casos d'exempció o benefici fiscal del 100%.
    - El camp NumeroReferenciaAutoliquidacio és obligatori però un valor de zero fa que el webservice li assigni un número que es retorna amb la resposta.
    - Si es vol barrejar autoliquidacions amb número assignat pel sistema amb autoliquidacions amb número explícit, es recomana que aquest número explícit sigui de la forma AAAANNNNNN, on AAAA és l'any en curs, i NNNNNN és un número seqüencial dins d'aquest any. Així s'eviten col·lisions entre els números assignats pel sistema i els explícits.
