@@ -3,7 +3,7 @@
 Aquesta és la documentació tècnica del webservice. En cap cas s'explica la part funcional i de procediment. En cas de dubte sobre aquestes parts, contacteu amb el/la Cap de Serveis Tributaris Generals de l'ORGT.
 
 ## Procediment d’adhesió
-1. Descarregar el [formulari d'adhesió](https://github.com/organisme-de-gestio-tributaria/autoliquidacio-generica/blob/main/Web%20service%20autoliquidacions%20gen%C3%A8riques.pdf).
+1. Descarregar el [formulari d'adhesió](https://github.com/organisme-de-gestio-tributaria/autoliquidacio-generica/blob/main/Web%20service%20autoliquidacions%20gen%C3%A8riques.pdf). Si no es visualitza al navegador, descarregueu-lo al vostre dispositiu.
 2. Emplenar el formulari.
 3. El formulari l'ha de signar la Tresorer/a, Interventor/a o Alcalde/sa.
 3. Enviar el formulari signat via EACAT a l’ORGT.
