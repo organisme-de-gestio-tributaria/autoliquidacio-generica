@@ -18,7 +18,7 @@ Respecte a la seguretat, cal tenir en compte:
 1. L’accés al web service serà via https i amb certificat d'òrgan. 
 1. El client ha de suportar el protocol TLS 1.2.
 1. Es comprovarà que les autoliquidacions enviades corresponen a l’Ajuntament associat al certificat. No obstant, per les proves es podrà fer servir qualsevol certificat d'òrgan que tingui un CIF associat, per exemple per les proves d'una empresa de software externa a l'Ajuntament.
-1. **Previ a les proves cal comunicar el certificat utilitzat a l’ORGT ja que és necessari instal·lar la clau pública als servidors de la ORGT.** Vegeu el procés de sol·licitud a la [pàgina principal](https://github.com/organisme-de-gestio-tributaria/organisme-de-gestio-tributaria)
+1. **Previ a les proves cal comunicar el certificat utilitzat a l’ORGT ja que és necessari instal·lar la clau pública als servidors de la ORGT.** Vegeu el procediment d'adhesió a l'inici d'aquest web, els detalls estan en el formulari d'adhesió.
 
 Els endpoints disponibles són:
 1. **AltaAutoliquidacioREST**. Donar d’alta una autoliquidació, detectant duplicitats (mateix Ajuntament i número de referència de l’autoliquidació), i generant l’abonaré, el codi de barres per pagar-lo al banc, i la URL per fer el pagament a la seu de l'ORGT. Cal notar que:
